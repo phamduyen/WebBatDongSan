@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "e9faf08138027502")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a7331ded379a39c9")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -344,6 +344,41 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Phone
 		{
 			get { return this.GetPropertyValue<string>("phone"); }
+		}
+	}
+
+	/// <summary>Sponsor</summary>
+	[PublishedContentModel("sponsor")]
+	public partial class Sponsor : Mics
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "sponsor";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Sponsor(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Sponsor, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Gallery
+		///</summary>
+		[ImplementPropertyType("gallery")]
+		public string Gallery
+		{
+			get { return this.GetPropertyValue<string>("gallery"); }
 		}
 	}
 

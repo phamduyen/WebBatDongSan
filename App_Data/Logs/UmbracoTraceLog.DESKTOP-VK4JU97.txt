@@ -312,3 +312,28 @@ _shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needF
  2016-11-20 01:36:51,058 [P7300/D2/T44] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.ITree, found 0 (took 16ms)
  2016-11-20 01:36:51,216 [P7300/D2/T28] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.IApplication
  2016-11-20 01:36:51,237 [P7300/D2/T28] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.IApplication, found 0 (took 21ms)
+ 2016-11-20 01:50:33,725 [P7300/D2/T83] INFO  Umbraco.Core.Logging.OwinLogger - Event Id: 0, state: User logged will be logged out due to timeout: manguonmo2016@gmail.com, IP Address: ::1
+ 2016-11-20 01:51:31,713 [P7300/D2/T93] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt succeeded for username manguonmo2016@gmail.com from IP address ::1
+ 2016-11-20 01:51:31,714 [P7300/D2/T93] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: User: manguonmo2016@gmail.com logged in from IP address ::1
+ 2016-11-20 02:08:36,961 [P7300/D2/T151] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2016-11-20 02:08:36,962 [P7300/D2/T151] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2016-11-20 02:08:36,962 [P7300/D2/T151] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2016-11-20 02:09:00,884 [P7300/D2/T87] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Editors.IEditorValidator
+ 2016-11-20 02:09:01,004 [P7300/D2/T87] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Editors.IEditorValidator, found 0 (took 120ms)
+ 2016-11-20 02:09:02,469 [P7300/D2/T151] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2016-11-20 02:09:02,469 [P7300/D2/T151] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2016-11-20 02:09:02,469 [P7300/D2/T151] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2016-11-20 02:09:20,102 [P7300/D2/T157] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2016-11-20 02:09:20,102 [P7300/D2/T157] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2016-11-20 02:09:20,102 [P7300/D2/T157] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2016-11-20 02:12:02,231 [P7300/D2/T161] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Sponsor' with Id '0' has been published.
+ 2016-11-20 02:12:06,517 [P7300/D2/T170] INFO  umbraco.content - Save Xml to file...
+ 2016-11-20 02:12:06,541 [P7300/D2/T170] INFO  umbraco.content - Saved Xml to file.
+ 2016-11-20 02:13:36,040 [P7300/D2/T14] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Nhà tài trợ' with Id '1137' has been published.
+ 2016-11-20 02:13:40,467 [P7300/D2/T143] INFO  umbraco.content - Save Xml to file...
+ 2016-11-20 02:13:40,490 [P7300/D2/T143] INFO  umbraco.content - Saved Xml to file.
+ 2016-11-20 02:16:09,543 [P7300/D2/T162] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Phạm Thị Duyên ' with Id '0' has been published.
+ 2016-11-20 02:16:13,798 [P7300/D2/T143] INFO  umbraco.content - Save Xml to file...
+ 2016-11-20 02:16:13,880 [P7300/D2/T143] INFO  umbraco.content - Saved Xml to file.
+ 2016-11-20 02:16:14,687 [P7300/D2/T164] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
+ 2016-11-20 02:16:14,806 [P7300/D2/T87] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
