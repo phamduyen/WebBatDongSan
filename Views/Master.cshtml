@@ -5,7 +5,7 @@
 
 @{
     var rootNode = Umbraco.TypedContentAtRoot();
-    var sponsorItem = rootNode.DescendantsOrSelf("sponsor").First();
+    //var sponsorItem = rootNode.DescendantsOrSelf("sponsor").First();
 }
 
 <html>
@@ -102,20 +102,7 @@
     <div id="jcarousel_wrapper">
         <div id="jcarousel">
             <ul>
-                @if (sponsorItem != null)
-                {
-                    var listID = sponsorItem.GetPropertyValue<string>("gallery").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (var id in listID)
-                    {
-                        var image = Umbraco.TypedMedia(id);
-                        var url = String.Empty;
-                        if (image != null)
-                        {
-                            url = image.Url;
-                        }
-                        <li><img src="@url" width="233" height="97" /></li>
-                    }
-                }
+                
             </ul>
         </div>
     </div>
