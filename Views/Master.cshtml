@@ -1,77 +1,121 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-    Layout = null;
-	var home = @CurrentPage.Site();
+	Layout = null;
 }
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-
-    <!-- Meta tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="@CurrentPage.siteDescription">
-
-    <title>@CurrentPage.Name | @CurrentPage._siteTitle</title>
-	
-	<!-- Fonts -->
-	<link href="//fonts.googleapis.com/css?family=Merriweather:400,700,300,900" rel="stylesheet" type="text/css">
-	<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css">
-	
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/fanoe.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-    <header>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-8 col-sm-12 col-md-4">
-			<a href="@home.Url">
-            	<div class="brand" style="background-image:url('@(home.SiteLogo)?height=65&width=205&bgcolor=000')"></div>
-			</a>
-          </div>
-          <div class="col-sm-12 col-md-8">
-            <nav>
-			  
-              @{ Html.RenderPartial("MainNavigation"); }
-
-            </nav>
-          </div>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Website Bất Động Sản</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/js-image-slider.css" rel="stylesheet" />
+    <script src="~/js/jquery-2.1.1.min.js"></script>
+    <script src="~/js/jquery.jcarousel.min.js"></script>
+    <script src="~/js/js-image-slider.js"></script>
+    <script src="~/js/site.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="header">
+        <div id="logo">
+            <a href="/" title="Trang chủ"><img src="/images/logo.png" alt="Trang chủ"/></a>
         </div>
-      </div>
-
-      <div id="toggle" class="toggle">
-        <a href="#" class="cross"><span></span></a>
-      </div>
-    </header>
-	
-    @RenderBody()
-
-    <footer class="field dark">
-      <div class="container">
-        <div class="row">
-			
-		  @{ Html.RenderPartial("BottomNavigation"); }
-
+        <div id="navigation">
+            <div id="hotline">
+                <span class="label">Hotline: </span><span class="number">090 1234 567</span>
+            </div>
+            <div class="clearfix"></div>
+            <div id="menu">
+                <ul>
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="/">Dự án</a></li>
+                    <li><a href="/">Tin tức</a></li>
+                    <li><a href="/">Liên hệ</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </footer>
-    
-    <!-- Javascripts -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-	<script src="/scripts/fanoe.js"></script>
-  </body>
+        <div class="clearfix"></div>
+    </div>
+    <div id="middle">
+        <div id="slider">
+            <a href="/"><img src="/images/hungngangarden.jpg"/></a>
+            <a href="/"><img src="/images/du-an-the-everrich-infinity.jpg" /></a>
+        </div>
+        <div id="advertising"><img src="/images/quangcao.jpg"/></div>
+        <div class="clearfix"></div>
+    </div>
+    <div id="content">
+        @RenderBody()
+    </div>
+    <div id="rightSide">
+        <div class="category_headline">
+            <a href="javascript:void(0);" title="Dự án mới nhất">
+                <h2>Dự án mới nhất</h2>
+                <span></span>
+            </a>
+        </div>
+        <div id="newestProject">
+            <ul>
+                <li>
+                    <div class="thumbnail">
+                        <a href=""><img src="/images/hungngangarden.jpg" width="60"/></a>
+                    </div>
+                    <div class="detail">
+                        <div class="title"><a href="/">Căn hộ Sài Gòn Town</a>
+                        </div>
+                        <div class="price">Giá: 876 triệu</div>
+                        <div class="square">Diện tích: 84 m2</div>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <div class="thumbnail"><a href=""><img src="/images/hungngangarden.jpg" width="60"/></a>
+                    </div>
+                    <div class="detail">
+                        <div class="title"><a href="/">Căn hộ Lotus Garden</a>
+                        </div>
+                        <div class="price">Giá: 876 triệu</div>
+                        <div class="square">Diện tích: 84 m2</div>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <div class="thumbnail"><a href=""><img src="/images/hungngangarden.jpg" width="60" /></a></div>
+                    <div class="detail">
+                        <div class="title"><a href="/">Căn hộ Reiverside</a>
+                        </div>
+                        <div class="price">Giá: 876 triệu</div>
+                        <div class="square">Diện tích: 84 m2</div>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div id="jcarousel_wrapper">
+        <div id="jcarousel">
+            <ul>
+                <li><img src="/images/iconACB.jpg" width="233" height="97"/></li>
+                <li><img src="/images/iconDongA.jpg" width="233" height="97"/></li>
+                <li><img src="/images/iconExim.jpg" width="233" height="97"/></li>
+                <li><img src="/images/iconHD.jpg" width="233" height="97"/></li>
+                <li><img src="/images/iconMB.jpg" width="233" height="97" /></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="newsletter">
+    <h4 class="newsletter_title">Đăng ký nhận bản tin tổng đài nhà đất</h4>
+    <div class="form_group">
+        <form method="POST">
+            <input type="email" required="required" name="email">
+            <button type="submit">Đăng ký nhận tiện ích</button>
+        </form>
+    </div>
+</div>
+<div id="copyright">© 2016 - Bản quyền của Công Ty Cổ Phần AXYZ. Địa chỉ: Tòa nhà Lữ Gia, 170 Lữ Gia, Phường 15, Quận 11, TPHCM, Việt Nam. Giấy chứng nhận Đăng ký Kinh doanh số 11111111111 do Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh cấp ngày 01/01/2016
+</div>
+</body>
 </html>

@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "905378342feeb11a")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4f4f13f12d69b739")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 
 // FILE: models.generated.cs
@@ -115,6 +115,147 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<TrangChu, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Du an Item</summary>
+	[PublishedContentModel("duAnItem")]
+	public partial class DuAnItem : Page
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "duAnItem";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public DuAnItem(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<DuAnItem, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Địa chỉ
+		///</summary>
+		[ImplementPropertyType("diaChi")]
+		public string DiaChi
+		{
+			get { return this.GetPropertyValue<string>("diaChi"); }
+		}
+
+		///<summary>
+		/// Diện tích
+		///</summary>
+		[ImplementPropertyType("dienTich")]
+		public string DienTich
+		{
+			get { return this.GetPropertyValue<string>("dienTich"); }
+		}
+
+		///<summary>
+		/// Gallery
+		///</summary>
+		[ImplementPropertyType("gallery")]
+		public string Gallery
+		{
+			get { return this.GetPropertyValue<string>("gallery"); }
+		}
+
+		///<summary>
+		/// Giá
+		///</summary>
+		[ImplementPropertyType("gia")]
+		public string Gia
+		{
+			get { return this.GetPropertyValue<string>("gia"); }
+		}
+
+		///<summary>
+		/// Mô tả
+		///</summary>
+		[ImplementPropertyType("moTa")]
+		public string MoTa
+		{
+			get { return this.GetPropertyValue<string>("moTa"); }
+		}
+
+		///<summary>
+		/// Thumbnail
+		///</summary>
+		[ImplementPropertyType("thumbnail")]
+		public string Thumbnail
+		{
+			get { return this.GetPropertyValue<string>("thumbnail"); }
+		}
+	}
+
+	/// <summary>Mics</summary>
+	[PublishedContentModel("mics")]
+	public partial class Mics : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "mics";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Mics(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Mics, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Tab</summary>
+	[PublishedContentModel("tab")]
+	public partial class Tab : Mics
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "tab";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Tab(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Tab, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Nội dung
+		///</summary>
+		[ImplementPropertyType("noiDung")]
+		public IHtmlString NoiDung
+		{
+			get { return this.GetPropertyValue<IHtmlString>("noiDung"); }
 		}
 	}
 
