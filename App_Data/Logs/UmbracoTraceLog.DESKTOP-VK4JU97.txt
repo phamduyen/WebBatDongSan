@@ -337,3 +337,15 @@ _shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needF
  2016-11-20 02:16:13,880 [P7300/D2/T143] INFO  umbraco.content - Saved Xml to file.
  2016-11-20 02:16:14,687 [P7300/D2/T164] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
  2016-11-20 02:16:14,806 [P7300/D2/T87] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
+ 2016-11-20 02:23:19,892 [P7300/D2/T140] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Phạm Thị Duyên ' with Id '0' has been published.
+ 2016-11-20 02:23:22,666 [P7300/D2/T166] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
+ 2016-11-20 02:23:24,177 [P7300/D2/T87] INFO  umbraco.content - Save Xml to file...
+ 2016-11-20 02:23:24,204 [P7300/D2/T87] INFO  umbraco.content - Saved Xml to file.
+ 2016-11-20 02:23:40,809 [P7300/D2/T87] INFO  Umbraco.Core.Logging.OwinLogger - Event Id: 0, state: User logged will be logged out due to timeout: manguonmo2016@gmail.com, IP Address: ::1
+ 2016-11-20 02:24:18,383 [P7300/D2/T163] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt succeeded for username manguonmo2016@gmail.com from IP address ::1
+ 2016-11-20 02:24:18,383 [P7300/D2/T163] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: User: manguonmo2016@gmail.com logged in from IP address ::1
+ 2016-11-20 02:27:36,268 [P7300/D2/T178] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Phạm Thị Duyên ' with Id '0' has been published.
+ 2016-11-20 02:27:38,975 [P7300/D2/T87] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
+ 2016-11-20 02:27:39,092 [P7300/D2/T146] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
+ 2016-11-20 02:27:40,595 [P7300/D2/T146] INFO  umbraco.content - Save Xml to file...
+ 2016-11-20 02:27:40,624 [P7300/D2/T146] INFO  umbraco.content - Saved Xml to file.
