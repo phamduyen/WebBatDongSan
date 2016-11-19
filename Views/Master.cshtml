@@ -3,6 +3,11 @@
 	Layout = null;
 }
 
+@{
+    var rootNode = Umbraco.TypedContentAtRoot();
+    var sponsorItem = rootNode.DescendantsOrSelf("sponsor").First();
+}
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -97,11 +102,20 @@
     <div id="jcarousel_wrapper">
         <div id="jcarousel">
             <ul>
-                <li><img src="/images/iconACB.jpg" width="233" height="97" /></li>
-                <li><img src="/images/iconDongA.jpg" width="233" height="97" /></li>
-                <li><img src="/images/iconExim.jpg" width="233" height="97" /></li>
-                <li><img src="/images/iconHD.jpg" width="233" height="97" /></li>
-                <li><img src="/images/iconMB.jpg" width="233" height="97" /></li>
+                @if (sponsorItem != null)
+                {
+                    var listID = sponsorItem.GetPropertyValue<string>("gallery").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var id in listID)
+                    {
+                        var image = Umbraco.TypedMedia(id);
+                        var url = String.Empty;
+                        if (image != null)
+                        {
+                            url = image.Url;
+                        }
+                        <li><img src="@url" width="233" height="97" /></li>
+                    }
+                }
             </ul>
         </div>
     </div>
