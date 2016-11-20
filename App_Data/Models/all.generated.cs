@@ -1,4 +1,4 @@
-using  System;
+﻿using  System;
 using  System.Collections.Generic;
 using  System.Linq.Expressions;
 using  System.Web;
@@ -8,6 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
+
 [assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "2d54c43021fa06ce")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
