@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "6e7fc1461184ca4")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c2cb34ec62fbb555")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
@@ -40,7 +40,7 @@ using  Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>page</summary>
+	/// <summary>Page</summary>
 	[PublishedContentModel("page")]
 	public partial class Page : PublishedContentModel
 	{
@@ -415,6 +415,94 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Gallery
 		{
 			get { return this.GetPropertyValue<string>("gallery"); }
+		}
+	}
+
+	/// <summary>Tin tuc</summary>
+	[PublishedContentModel("tinTuc")]
+	public partial class TinTuc : Page
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "tinTuc";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public TinTuc(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<TinTuc, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Sublings
+		///</summary>
+		[ImplementPropertyType("sublings")]
+		public string Sublings
+		{
+			get { return this.GetPropertyValue<string>("sublings"); }
+		}
+	}
+
+	/// <summary>Tin tuc item</summary>
+	[PublishedContentModel("tinTucItem")]
+	public partial class TinTucItem : Page
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "tinTucItem";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public TinTucItem(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<TinTucItem, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Mô tả
+		///</summary>
+		[ImplementPropertyType("moTa")]
+		public string MoTa
+		{
+			get { return this.GetPropertyValue<string>("moTa"); }
+		}
+
+		///<summary>
+		/// Nội dung
+		///</summary>
+		[ImplementPropertyType("noiDung")]
+		public IHtmlString NoiDung
+		{
+			get { return this.GetPropertyValue<IHtmlString>("noiDung"); }
+		}
+
+		///<summary>
+		/// Thumbnail
+		///</summary>
+		[ImplementPropertyType("thumbnail")]
+		public string Thumbnail
+		{
+			get { return this.GetPropertyValue<string>("thumbnail"); }
 		}
 	}
 
