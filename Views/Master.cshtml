@@ -5,21 +5,26 @@
 @{
     var rootNode = Umbraco.TypedContentAtRoot();
     var sponsorItem = rootNode.DescendantsOrSelf("sponsor").First();
+
+    var duAnItems = rootNode.DescendantsOrSelf("duAnItem");
+    var duanBannerItems = duAnItems.Where(x => x.GetPropertyValue<bool>("duAnBanner"));
+    var duanMoiNhatItems = duAnItems.OrderByDescending(x => x.UpdateDate).Take(6);
+    var menuItems = rootNode.First().Children.Where(x=>x.GetPropertyValue<bool>("hideInNavigation") == false);
 }
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Website Bất Động Sản</title>
-    <link href="~/css/js-image-slider.css" rel="stylesheet" />
+    <link href="~/css/js-image-slider.css" rel="stylesheet"/>
+    <link href="~/css/jquery.galleryview-3.0-dev.css" rel="stylesheet"/>
     <link href="~/css/site.css" rel="stylesheet" />
     <script src="~/js/jquery-2.1.1.min.js"></script>
     <script src="~/js/jquery.jcarousel.min.js"></script>
     <script src="~/js/js-image-slider.js"></script>
-    <script src="~/js/"></script>
-    <script src="~/js/site.js"></script>
-    <link href="~/css/jquery.galleryview-3.0-dev.css" rel="stylesheet"/>
+    <script src="~/js/jquery.timers-1.2.js"></script>
     <script src="~/js/jquery.galleryview-3.0-dev.js"></script>
+    <script src="~/js/site.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -34,10 +39,11 @@
             <div class="clearfix"></div>
             <div id="menu">
                 <ul>
-                    <li><a href="/">Trang chủ</a></li>
-                    <li><a href="/">Dự án</a></li>
-                    <li><a href="/">Tin tức</a></li>
-                    <li><a href="/">Liên hệ</a></li>
+                    <li class="menu_active"><a href="/">Trang chủ</a></li>
+                    @foreach (var item in menuItems)
+                    {
+                        <li><a href="@item.Url">@item.Name</a></li>
+                    }
                 </ul>
             </div>
         </div>
@@ -45,10 +51,20 @@
     </div>
     <div id="middle">
         <div id="slider">
-            <a href="/"><img src="/images/hungngangarden.jpg"/></a>
-            <a href="/"><img src="/images/du-an-the-everrich-infinity.jpg"/></a>
+            @foreach (var item in duanBannerItems)
+            {
+                var imageID = item.GetPropertyValue<int>("thumbnail");
+                var image = Umbraco.TypedMedia(imageID);
+                var url = string.Empty;
+                if (image != null)
+                {
+                    url = image.Url;
+                }
+                
+                <a href="@item.Url"><img src="@url" /></a>
+            }
         </div>
-        <div id="advertising"><img src="/images/quangcao.jpg"</div>
+        <div id="advertising"><img src="/images/quangcao.jpg"/></div>
         <div class="clearfix"></div>
     </div>
     <div id="content">
@@ -58,41 +74,34 @@
         <div class="category_headline">
             <a href="javascript:void(0);" title="Dự án mới nhất">
                 <h2>Dự án mới nhất</h2>
+                <span></span>
             </a>
-            <span></span>
         </div>
-
         <div id="newestProject">
             <ul>
-                <li>
-                    <div class="thumbnail"><a href=""><img src="/images/hungngangarden.jpg" width="60p" /></a></div>
-                    <div class="detail">
-                        <div class="title"><a href="">Căn hộ Sài Gòn Town</a></div>
-                        <div class="price">Gía: 876 triệu/div>
-                        <div class="square">Diện tích: 84 m2</div>
-                    </div>
-                    <div class="clearfix"></div>
-                </li>  
-                
-                <li>
-                    <div class="thumbnail"><a href=""><img src="/images/hungngangarden.jpg" width="60p" /></a></div>
-                    <div class="detail">
-                        <div class="title"><a href="">Căn hộ Sài Gòn Town</a></div>
-                        <div class="price">Gía: 876 triệu/div>
-                        <div class="square">Diện tích: 84 m2</div>
-                    </div>
-                    <div class="clearfix"></div>
-                </li>   
-                
-                <li>
-                    <div class="thumbnail"><a href=""><img src="/images/hungngangarden.jpg" width="60p" /></a></div>
-                    <div class="detail">
-                        <div class="title"><a href="">Căn hộ Sài Gòn Town</a></div>
-                        <div class="price">Gía: 876 triệu/div>
-                        <div class="square">Diện tích: 84 m2</div>
-                    </div>
-                    <div class="clearfix"></div>
-                </li>             
+                @foreach (var item in duanMoiNhatItems)
+                {
+                    var thumbnail = Umbraco.TypedMedia(item.GetPropertyValue<int>("thumbnail"));
+                    var url = String.Empty;
+                    if (thumbnail != null)
+                    {
+                        url = thumbnail.Url;
+                    }
+                    
+                    <li>
+                        <div class="thumbnail">
+                            <a href="@item.Url"><img src="@url" width="60" /></a>
+                        </div>
+                        <div class="detail">
+                            <div class="title">
+                                <a href="@item.Url">@item.Name</a>
+                            </div>
+                            <div class="price">Giá: @(item.GetPropertyValue<string>("giaCa")) triệu</div>
+                            <div class="square">Diện tích: @(item.GetPropertyValue<string>("dienTich")) m2</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                }
             </ul>
         </div>
     </div>
