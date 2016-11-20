@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c2cb34ec62fbb555")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "2d54c43021fa06ce")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
 // FILE: models.generated.cs
@@ -503,6 +503,58 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Thumbnail
 		{
 			get { return this.GetPropertyValue<string>("thumbnail"); }
+		}
+	}
+
+	/// <summary>Subcribe</summary>
+	[PublishedContentModel("subcribe")]
+	public partial class Subcribe : Mics
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "subcribe";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Subcribe(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Subcribe, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Subcriber</summary>
+	[PublishedContentModel("subcriber")]
+	public partial class Subcriber : Mics
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "subcriber";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Subcriber(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Subcriber, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
 	}
 

@@ -4,13 +4,13 @@
 }
 @{
     var rootNode = Umbraco.TypedContentAtRoot();
-    var sponsorItem = rootNode.DescendantsOrSelf("sponsor").First();
-
     var duAnItems = rootNode.DescendantsOrSelf("duAnItem");
     var duanBannerItems = duAnItems.Where(x => x.GetPropertyValue<bool>("duAnBanner"));
     var duanMoiNhatItems = duAnItems.OrderByDescending(x => x.UpdateDate).Take(6);
+    var sponsorItem = rootNode.DescendantsOrSelf("sponsor").First();
     var menuItems = rootNode.First().Children.Where(x=>x.GetPropertyValue<bool>("hideInNavigation") == false);
 }
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -27,12 +27,28 @@
     <script src="~/js/site.js"></script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div id="wrapper">
     <div id="header">
         <div id="logo">
             <a href="/" title="Trang chủ"><img src="/images/logo.png" alt="Trang chủ"/></a>
         </div>
         <div id="navigation">
+            <div id="social">
+                <div class="fb-like" data-href="http://localhost:64732/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+                <!-- Place this tag in your head or just before your close body tag. -->
+                <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+                <!-- Place this tag where you want the +1 button to render. -->
+                <div class="g-plusone" data-annotation="none"></div>
+            </div>
             <div id="hotline">
                 <span class="label">Hotline: </span><span class="number">090 1234 567</span>
             </div>
@@ -60,11 +76,12 @@
                 {
                     url = image.Url;
                 }
-                
-                <a href="@item.Url"><img src="@url" /></a>
+
+                <a href="@item.Url"><img src="@url"/></a>
             }
         </div>
-        <div id="advertising"><img src="/images/quangcao.jpg"/></div>
+        <div id="advertising"><img src="/images/quangcao.jpg"/>
+        </div>
         <div class="clearfix"></div>
     </div>
     <div id="content">
@@ -87,10 +104,10 @@
                     {
                         url = thumbnail.Url;
                     }
-                    
+
                     <li>
                         <div class="thumbnail">
-                            <a href="@item.Url"><img src="@url" width="60" /></a>
+                            <a href="@item.Url"><img src="@url" width="60"/></a>
                         </div>
                         <div class="detail">
                             <div class="title">
@@ -104,6 +121,7 @@
                 }
             </ul>
         </div>
+        <div class="fb-page" data-href="https://www.facebook.com/vietnameconomics/" data-tabs="timeline" data-width="296" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/vietnameconomics/"><a href="https://www.facebook.com/vietnameconomics/">Hội Thông tin Bất Động Sản</a></blockquote></div></div>
     </div>
     <div class="clearfix"></div>
     <div id="jcarousel_wrapper">
@@ -111,7 +129,7 @@
             <ul>
                 @if (sponsorItem != null)
                 {
-                    var listID = sponsorItem.GetPropertyValue<string>("gallery").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    var listID = sponsorItem.GetPropertyValue<string>("gallery").Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries);
                     foreach (var id in listID)
                     {
                         var image = Umbraco.TypedMedia(id);
@@ -120,21 +138,21 @@
                         {
                             url = image.Url;
                         }
-                        <li><img src="@url" width="233" height="97" /></li>
+                        <li><img src="@url" width="233" height="97"/></li>
                     }
                 }
             </ul>
         </div>
     </div>
 </div>
-</div>
 <div id="newsletter">
     <h4 class="newsletter_title">Đăng ký nhận bản tin tổng đài nhà đất</h4>
     <div class="form_group">
-        <form method="post">
-            <input type="email" required="required" name="email" />
+        @using (Html.BeginForm("DoSubcribe", "Subcribe"))
+        {
+            <input type="email" required="required" name="email">
             <button type="submit">Đăng ký nhận tiện ích</button>
-        </form>
+        }
     </div>
 </div>
 <div id="copyright">© 2016 - Bản quyền của Công Ty Cổ Phần AXYZ. Địa chỉ: Tòa nhà Lữ Gia, 170 Lữ Gia, Phường 15, Quận 11, TPHCM, Việt Nam. Giấy chứng nhận Đăng ký Kinh doanh số 11111111111 do Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh cấp ngày 01/01/2016

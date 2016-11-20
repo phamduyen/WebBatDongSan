@@ -87,7 +87,6 @@ ul {
 .address {
     color: #333;
 }
-
 .link {
     color: #00b7f1;
 }
@@ -123,7 +122,6 @@ ul {
     background: url(/images/menu_bg.gif) top repeat-x;
     border: 1px solid #CCC;
 }
-
 #menu ul li a:hover, #menu ul li.menu_active a {
     background: #ccc;
 }
@@ -256,18 +254,12 @@ ul {
 #project .thumbnail {
     margin-bottom: 6px;
 }
-
-#project ul li {
-    float: left;
-    width: 216px;
-    margin-bottom: 20px;
-}
 #project ul.items li {
     float: left;
     width: 216px;
     margin-bottom: 20px;
 }
-#project ul li.center {
+#project ul.items li.center {
     margin-left: 18px; 
     margin-right: 18px;
 }
@@ -482,48 +474,3 @@ ul {
     cursor: pointer;
 }
 /***End Lien he**/
-
-/***Start Paging***/
-.pagingWrapper {
-    padding-top:20px;
-    padding-bottom:20px;
-}
-
-.paging {
-    text-align:center;
-}
-
-.paging li {
-    display:inline-block;
-}
-.paging li.sumary {
-    padding-right:10px;
-}
-.paging li.number {
-    background-color: #e8e8e8; 
-    color: #929191; 
-    font-weight: bold; 
-    font-size: 13pt; 
-    text-align: center;
-    
-    border:1px solid #d5d2d2;
-    border-radius:5px;
-}
-
-.paging li.selected {
-    background-color: #f2f2f2; 
-}
-
-.paging li.number a {
-    font-size:10pt;
-    color: #929191;
-    display: block;
-    line-height: 24px;
-    padding-left:12px;
-    padding-right:12px;
-}
-
-.paging li.selected a {
-    color: #515954; 
-}
-/***End Paging***/

@@ -1,4 +1,3 @@
-
 ﻿$(function () {
     $('#myGalleryProject').galleryView({
         panel_width: 486,
@@ -14,7 +13,6 @@
            target: '+=1',
            autostart: true
        });
-
     $(".tabButton").each(function () {
         $(this).click(function () {
             $(".tabButton").removeClass("current");
@@ -31,5 +29,4 @@
             $self.closest("li").addClass("menu_active");
         }
     });
-
 });
