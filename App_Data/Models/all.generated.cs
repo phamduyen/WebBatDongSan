@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a7331ded379a39c9")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "6e7fc1461184ca4")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
@@ -63,6 +63,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Page, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Hide in navigation
+		///</summary>
+		[ImplementPropertyType("hideInNavigation")]
+		public bool HideInNavigation
+		{
+			get { return this.GetPropertyValue<bool>("hideInNavigation"); }
 		}
 	}
 
@@ -162,6 +171,24 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Dự án Banner
+		///</summary>
+		[ImplementPropertyType("duAnBanner")]
+		public bool DuAnBanner
+		{
+			get { return this.GetPropertyValue<bool>("duAnBanner"); }
+		}
+
+		///<summary>
+		/// Dự án HOT
+		///</summary>
+		[ImplementPropertyType("duAnHOT")]
+		public bool DuAnHot
+		{
+			get { return this.GetPropertyValue<bool>("duAnHOT"); }
+		}
+
+		///<summary>
 		/// Gallery
 		///</summary>
 		[ImplementPropertyType("gallery")]
@@ -221,6 +248,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Mics, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Hide in navigation
+		///</summary>
+		[ImplementPropertyType("hideInNavigation")]
+		public bool HideInNavigation
+		{
+			get { return this.GetPropertyValue<bool>("hideInNavigation"); }
 		}
 	}
 
