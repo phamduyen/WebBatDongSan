@@ -15,7 +15,7 @@ public class lienHeController: RenderMvcController
         {
             if(Request.HttpMethod == "POST")
             {
-              var fullName = Request["fullname"];
+              var fullName = Request["fullName"];
               var phone = Request["phone"];
               var email = Request["email"];   
               var address = Request["address"];
